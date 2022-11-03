@@ -1,0 +1,166 @@
+
+@media only screen and (min-width: 768px){
+    .nav-custom{
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration: none;
+        color:black;
+        white-space: nowrap;
+    }
+    .btn-custom{
+        background: #5CB85F;
+        border-radius: 2px;
+        border :0;
+        padding: 8px 12px;
+    }
+    .background-custom{
+        background-color: #F1F3FF;
+    }
+    h1{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 150%;
+    }
+    .text-custom{
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    }
+    .title-pad{
+        padding-left: 4.7rem;
+        padding-right: 2rem;
+    }
+    .container-top{
+        padding-top:17vh;
+    }
+    .container-left{
+        padding-left:6rem;
+    }
+    .car{
+        position: absolute;
+        top:129px
+    }
+    h2{
+        font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    }
+    h5{
+        font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    }
+    .bg-custom{
+       background-color: #F1F3FF;
+       border:0px; 
+    }
+    .custom-card{
+        background-color:#0D28A6;
+        border-radius: 13px;
+    }
+    .div-custom{
+        border-radius: 4px;
+        border : 1px solid #D4D4D4;
+    }
+    .faq-card{
+        border-radius: 4px;
+        border : 1px solid #D4D4D4;
+    }
+    .image-car{
+        width : 704px;
+        height: 407px;
+    }
+    .order-now{
+        height: 70vh;
+    }
+    .why-us-card{
+        border-radius: 10px;
+        border : 2px solid #D4D4D4;
+    }
+    .image-car{
+        width: 670px;
+
+    }
+}
+
+
+@media only screen and (max-width: 768px){
+    .image-car{
+        width : 344.22px;
+        height: 199px;
+    }
+    .image-service{
+        width: 252px;
+    }
+    .container-top{
+        padding-top: 13vh;
+    }
+    .container-service{
+        padding-top: 6vh;
+    }
+    .car-margin-top{
+        margin-top: 5vh;
+    }
+    .center{
+        display: flex;
+        justify-content: center;
+    }
+    .mobile-why-us{
+        display: flex;
+        justify-content: center;
+    }
+    .mobile-testimonial{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .mobile-faq{
+        text-align: center;
+    }
+    .custom-card{
+        background-color:#0D28A6;
+        border-radius: 13px;
+    }
+    .faq-card{
+        border-radius: 4px;
+        border : 1px solid #D4D4D4; 
+    }
+    .why-us-card{
+        border-radius: 10px;
+        border : 2px solid #D4D4D4;
+    }
+     .background-custom{
+        background-color: #F1F3FF;
+    }
+    .img-check{
+        width: 24px;
+        height: 24px;
+    }
+    h1{
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 54px;
+        }
+    h2{
+        font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    }
+    h5{
+        font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    }
+}

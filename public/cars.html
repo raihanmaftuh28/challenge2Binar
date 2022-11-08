@@ -61,38 +61,149 @@
 
     <!-- Filter Section -->
     <section id="filter">
-      <div class="block mx-auto">
-        <div class="">
-          <div class="relative flex gap-x-5 items-center">
-            <p>Pilih Tipe Driver</p>
-            <img
-              src="./assets/button_down.png"
-              alt="button down"
-              class="h-full"
-              onclick="myFunction()"
-            />
-            <div
-              id="myDropdown"
-              class="hidden absolute w-[160px] overflow-auto -z-1"
-            >
-              <a class="block" href="">Home</a>
-              <a class="block" href="">About</a>
-              <a class="block" href="">Contact</a>
+      <div class="container flex justify-center text-[14px] mt-[45px]">
+        <div
+          class="flex justify-center space-x-3 border-2 rounded-lg py-10 px-10 min-w-3/4"
+        >
+          <!-- dropdown 1 -->
+          <div class="text-slate-500">
+            <p class="mb-1">Tipe Driver</p>
+            <div class="block border-2 w-[250px] px-4 py-3 rounded-lg mb-1">
+              <div class="flex gap-x-5 items-center justify-between">
+                <p id="drop-driver">Pilih Tipe Driver</p>
+                <img
+                  src="./assets/button_down.png"
+                  alt="button down"
+                  class="h-full cursor-pointer"
+                  onclick='showDrop("dropdown-driver")'
+                />
+              </div>
             </div>
+            <div
+              id="dropdown-driver"
+              class="w-[211px] overflow-auto -z-1 hidden"
+            >
+              <div
+                class="px-4 block driver py-2 hover:bg-green-400 hover:text-green-800"
+                id="1"
+                href=""
+              >
+                Dengan Supir
+              </div>
+              <div
+                class="px-4 py-2 block driver hover:bg-green-400 hover:text-green-800"
+                id="2"
+                href=""
+              >
+                Tanpa Supir(Lepas Kunci)
+              </div>
+            </div>
+          </div>
+
+          <!-- dropdown 2 -->
+          <div class="text-slate-500">
+            <p class="mb-1">Tanggal</p>
+            <input
+              type="date"
+              class="border-2 w-[211px] px-4 py-3 rounded-lg mb-1"
+            />
+          </div>
+
+          <!-- dropdown 3 -->
+          <div class="text-slate-500">
+            <p class="mb-1 flex">Waktu Jemput/Ambil</p>
+            <div class="block border-2 w-[211px] px-4 py-3 rounded-lg mb-1">
+              <div class="flex gap-x-5 items-center justify-between">
+                <p id="drop-time" class="w-[100px]">Pilih Waktu</p>
+                <img
+                  src="./assets/button_down.png"
+                  alt="button down"
+                  class="h-full cursor-pointer"
+                  onclick='showDrop("dropdown-time")'
+                />
+              </div>
+            </div>
+            <div id="dropdown-time" class="w-[211px] overflow-auto -z-1 hidden">
+              <div class="time py-2 px-4 block hover:bg-green-400">
+                <div class="flex justify-between hover:text-green-800" href="">
+                  <p>08.00</p>
+                  <p>WIB</p>
+                </div>
+              </div>
+              <div class="time py-2 px-4 hover:bg-green-400">
+                <div
+                  class="flex justify-between block hover:text-green-800"
+                  href=""
+                >
+                  <p>09.00</p>
+                  <p>WIB</p>
+                </div>
+              </div>
+              <div class="time py-2 px-4 hover:bg-green-400">
+                <div
+                  class="flex justify-between block hover:text-green-800"
+                  href=""
+                >
+                  <p>10.00</p>
+                  <p>WIB</p>
+                </div>
+              </div>
+              <div class="time py-2 px-4 hover:bg-green-400">
+                <div
+                  class="flex justify-between block hover:text-green-800"
+                  href=""
+                >
+                  <p>11.00</p>
+                  <p>WIB</p>
+                </div>
+              </div>
+              <div class="time py-2 px-4 hover:bg-green-400">
+                <div
+                  class="flex justify-between block hover:text-green-800"
+                  href=""
+                >
+                  <p>12.00</p>
+                  <p>WIB</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- dropdown 4 -->
+          <div class="text-slate-500">
+            <p class="mb-1">Jumlah Penumpang</p>
+            <input
+              id="jumlahPenumpang"
+              type="number"
+              placeholder="Jumlah Penumpang"
+              class="border-2 w-[211px] px-4 py-3 rounded-lg mb-1"
+            />
+          </div>
+
+          <div class="">
+            <button
+              class="h-[50px] mt-6 text-[14px] bg-green-300 hover:bg-green-400 hover:text-green-800 px-2 py-1 rounded-lg"
+              onclick="onFilter()"
+            >
+              Cari Mobil
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <script>
-      const myFunction = () => {
-        const dropdown = document.getElementById("myDropdown");
-        if (dropdown.classList.contains("hidden")) {
-          dropdown.classList.replace("hidden", "block");
-        } else if (dropdown.classList.contains("block")) {
-          dropdown.classList.replace("block", "hidden");
-        }
-      };
-    </script>
+    <!-- Data Section -->
+    <div class="mt-[45px]">
+      <div
+        id="list-data"
+        class="flex flex-wrap justify-center space-x-12 space-y-6"
+      ></div>
+    </div>
+
+    <!-- Footer Section -->
+    <section id="footer">
+      <div class="mt-[45px]"></div>
+    </section>
   </body>
+  <script src="http://localhost:2000/js"></script>
 </html>

@@ -23,7 +23,7 @@ http
         pathOption = "public/scripts/";
         break;
       case "/js":
-        req.url = "bundle.js";
+        req.url = "load.js";
         pathOption = "public/";
         break;
       case "/car_class":

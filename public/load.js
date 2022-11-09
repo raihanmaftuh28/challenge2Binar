@@ -1,4 +1,58 @@
-// const Car = require("./scripts/car");
+class Car {
+  static list = [];
+
+  static init(cars) {
+    this.list = cars.map((i) => new this(i));
+    console.log("created");
+  }
+
+  constructor({
+    id,
+    plate,
+    manufacture,
+    model,
+    image,
+    rentPerDay,
+    capacity,
+    description,
+    transmission,
+    available,
+    type,
+    year,
+    options,
+    specs,
+    availableAt,
+  }) {
+    this.id = id;
+    this.plate = plate;
+    this.manufacture = manufacture;
+    this.model = model;
+    this.image = image;
+    this.rentPerDay = rentPerDay;
+    this.capacity = capacity;
+    this.description = description;
+    this.transmission = transmission;
+    this.available = available;
+    this.type = type;
+    this.year = year;
+    this.options = options;
+    this.specs = specs;
+    this.availableAt = availableAt;
+  }
+
+  render() {
+    return `
+    <img src="${this.image}" alt="${this.manufacture}" width="160px" height="270px" class="mx-auto py-5">
+<p class="text-sm font-bold">${this.manufacture} ${this.model}</p>
+<p class="text-lg font-bold">Rp${this.rentPerDay}/hari</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<p>🧑🏻‍🤝‍🧑🏾 ${this.capacity} orang</p>
+<p>⚙️ ${this.transmission}</p>
+<p>📅 ${this.year}</p>
+
+`;
+  }
+}
 
 const showOrHideDropdown = (id) => {
   if (id.classList.contains("hidden")) {
@@ -31,24 +85,48 @@ changeText(".time", "#drop-time", "dropdown-time");
 
 console.log(document.querySelector(".time").innerHTML);
 
+const onFilter = () => {
+  const container = document.getElementById("list-data");
+  container.innerHTML = "";
+  const filterVal = parseInt(document.getElementById("jumlahPenumpang").value);
+  fetch("http://localhost:2000/cars")
+    .then((response) => response.json())
+    .then((responseJSON) => {
+      responseJSON.filter((data) => {
+        if (data.capacity === filterVal) {
+          const child = document.createElement("div");
+          const obj = new Car(data);
+          child.innerHTML = obj.render();
+          child.classList.add(
+            "w-[333px]",
+            "border-2",
+            "rounded-lg",
+            "space-y-3",
+            "p-4"
+          );
+          container.append(child);
+        }
+      });
+    });
+};
+
 const onLoad = () => {
   fetch("http://localhost:2000/cars")
     .then((response) => response.json())
     .then((responseJSON) => {
       const container = document.getElementById("list-data");
-
-      const Car = fuck();
       responseJSON.forEach((data) => {
-        console.log(Car);
-
-        // name.innerText = data.name;
-        // age.innerText = data.age;
-
-        // child.append(name);
-        // child.append(age);
-
-        // console.log(child);
-        // container.append(child);
+        const child = document.createElement("div");
+        const obj = new Car(data);
+        child.innerHTML = obj.render();
+        child.classList.add(
+          "w-[333px]",
+          "border-2",
+          "rounded-lg",
+          "space-y-3",
+          "p-4"
+        );
+        container.append(child);
       });
     });
 };

@@ -72,47 +72,6 @@ console.log(document.querySelector(".time").innerHTML);
       function (require, module, exports) {
         const Car = require("../public/scripts/car");
 
-        const isFilter = false;
-        const filter = "";
-        const getFilter = () => {
-          return {
-            jumlahPenumpang: document.getElementById("jumlahPenumpang"),
-          };
-        };
-
-        const activateFilter = () => {
-          isFilter = true;
-        };
-
-        if (isFilter) {
-          filter = getFilter();
-        }
-        console.log(filter);
-        const onFilter = () => {
-          fetch("http://localhost:2000/cars")
-            .then((response) => response.json())
-            .then((responseJSON) => {
-              const container = document.getElementById("list-data");
-              responseJSON.forEach((data) => {
-                const child = document.createElement("div");
-                const obj = new Car(data);
-                const objFiltered = obj.filter((car) => {
-                  car.capacity = parseInt(
-                    document.getElementById("jumlahPenumpang")
-                  );
-                });
-                child.innerHTML = obj.render();
-                child.classList.add(
-                  "w-[333px]",
-                  "border-2",
-                  "rounded-lg",
-                  "space-y-3",
-                  "p-4"
-                );
-                container.append(child);
-              });
-            });
-        };
         const onLoad = () => {
           fetch("http://localhost:2000/cars")
             .then((response) => response.json())

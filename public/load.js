@@ -45,7 +45,7 @@ class Car {
     <img src="${this.image}" alt="${this.manufacture}" width="160px" height="270px" class="mx-auto py-5">
 <p class="text-sm font-bold">${this.manufacture} ${this.model}</p>
 <p class="text-lg font-bold">Rp${this.rentPerDay}/hari</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<p>${this.description}</p>
 <p>🧑🏻‍🤝‍🧑🏾 ${this.capacity} orang</p>
 <p>⚙️ ${this.transmission}</p>
 <p>📅 ${this.year}</p>
@@ -88,24 +88,46 @@ console.log(document.querySelector(".time").innerHTML);
 const onFilter = () => {
   const container = document.getElementById("list-data");
   container.innerHTML = "";
-  const filterVal = parseInt(document.getElementById("jumlahPenumpang").value);
+  const filterVal = {
+    tipeDriver:
+      document.getElementById("drop-driver").innerText === "Pilih Tipe Driver"
+        ? ""
+        : document.getElementById("drop-driver").innerText,
+    tanggal: document.getElementById("tanggal").value,
+    waktu:
+      document.getElementById("drop-time").innerText === "Pilih Waktu"
+        ? ""
+        : document.getElementById("drop-time").innerText,
+    kapasitas: parseInt(document.getElementById("jumlah-penumpang").value),
+  };
+
+  const objAttributes = Object.getOwnPropertyNames(filterVal);
+  // const filteredObj = objAttributes.filter((att) => {
+  //   if (att) {
+  //     return att;
+  //   }
+  // });
+  console.log(objAttributes);
+
   fetch("http://localhost:2000/cars")
     .then((response) => response.json())
     .then((responseJSON) => {
       responseJSON.filter((data) => {
-        if (data.capacity === filterVal) {
-          const child = document.createElement("div");
-          const obj = new Car(data);
-          child.innerHTML = obj.render();
-          child.classList.add(
-            "w-[333px]",
-            "border-2",
-            "rounded-lg",
-            "space-y-3",
-            "p-4"
-          );
-          container.append(child);
-        }
+        // if (data.capacity === filterVal) {
+        //   const child = document.createElement("div");
+        //   const obj = new Car(data);
+        //   child.innerHTML = obj.render();
+        //   child.classList.add(
+        //     "w-[333px]",
+        //     "border-2",
+        //     "rounded-lg",
+        //     "space-y-3",
+        //     "p-4"
+        //   );
+        //   container.append(child);
+        // }
+        // const dateAvail = data.availableAt.slice(0, 10);
+        // console.log(dateAvail);
       });
     });
 };
